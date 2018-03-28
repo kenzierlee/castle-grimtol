@@ -185,12 +185,13 @@ namespace CastleGrimtol
                 PlayerChoice();
             }
         }
+        //sets up the 
         public void GamePlay()
         {
             if (game.CurrentRoom.Name == "Walk In Freezer")
             {
-                System.Console.WriteLine(game.CurrentRoom.Description);
-                System.Console.WriteLine("Hurry enter a code!");
+                game.SearchRoom();
+                System.Console.WriteLine("Hurry enter a four digit code!");
                 string input = Console.ReadLine();
                 int code = 0;
                 bool valid = int.TryParse(input, out code);
@@ -198,16 +199,19 @@ namespace CastleGrimtol
                 {
                     if (code == 1121)
                     {
-                        game.SearchRoom();
                         System.Console.WriteLine("The door opens");
                         PlayerChoice();
                     }
                     else
                     {
-                        game.SearchRoom();
                         System.Console.WriteLine("You entered the wrong code, and eventually freeze to death...");
                         PlayAgain();
                     }
+                }
+                else
+                {
+                    System.Console.WriteLine("You entered the wrong code, and eventually freeze to death...");
+                    PlayAgain();
                 }
             }
             if (game.CurrentRoom.Name == "Upstairs")
@@ -234,7 +238,7 @@ namespace CastleGrimtol
                     PlayAgain();
                 }
             }
-            if(game.CurrentRoom.Name == "The Back Door")
+            if (game.CurrentRoom.Name == "The Back Door")
             {
                 bool valid = false;
                 for (var i = 0; i < game.CurrentPlayer.Inventory.Count; i++)
@@ -246,7 +250,7 @@ namespace CastleGrimtol
                         valid = true;
                     }
                 }
-                if(valid)
+                if (valid)
                 {
                     System.Console.WriteLine("You pull out the pocket watch you found from the house, and ask if he will accept it as payment");
                     System.Console.WriteLine("The cab driver agrees. You get in the cab and take your first deep breathe. Its over, You Won!");
@@ -258,7 +262,7 @@ namespace CastleGrimtol
                     PlayAgain();
                 }
             }
-            if(game.CurrentRoom.Name == "The Crematorium" || game.CurrentRoom.Name == "The Front Door")
+            if (game.CurrentRoom.Name == "The Crematorium" || game.CurrentRoom.Name == "The Front Door")
             {
                 game.SearchRoom();
                 PlayAgain();
