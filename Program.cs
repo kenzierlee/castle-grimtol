@@ -11,7 +11,7 @@ namespace CastleGrimtol
             quest.Start();
             while(quest.Playing)
             {
-                quest.PlayerChoice();
+                quest.GamePlay();
             }
         }
     }
