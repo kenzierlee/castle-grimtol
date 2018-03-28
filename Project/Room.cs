@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using CastleGrimtol.Project;
 
 namespace CastleGrimtol.Project
 {
@@ -6,15 +7,26 @@ namespace CastleGrimtol.Project
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public Dictionary<string, Room> Directions {get; set;}
         public List<Item> Items { get; set; } = new List<Item>();
         public void UseItem(Item item)
         {
-            
+            for(int i = 0;i < Items.Count;i++)
+            {
+                var inventory = Items[i];
+                if(inventory == item)
+                {
+                    
+                }
+            }
         }
-        public Room(string name, string description)
+        public void CreateItem(string name, string description)
         {
-            Name = name;
-            Description = description;
+            Items.Add(new Item()
+            {
+                Name = name,
+                Description = description
+            });
         }
     }
 }

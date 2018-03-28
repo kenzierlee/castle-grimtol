@@ -8,7 +8,7 @@ namespace CastleGrimtol.Project
         Player CurrentPlayer { get; set; }
 
         void Setup();
-        void Reset();
+        void Reset(Quest quest);
 
         //No need to Pass a room since Items can only be used in the CurrentRoom
         void UseItem(string itemName);
