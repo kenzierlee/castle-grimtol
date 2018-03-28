@@ -7,6 +7,7 @@ namespace CastleGrimtol
     {
         public Game game { get; set; }
         public bool Playing = true;
+        //room setup
         public Room CreateRooms()
         {
             Room northHallway = new Room()
@@ -114,15 +115,18 @@ namespace CastleGrimtol
             upstairs.Directions.Add("South", backDoor);
             return crypt;
         }
+        //sets up the player
         public Player UserSetup()
         {
             return new Player();
         }
+        //initiates/creates the game
         public void Start()
         {
             game = new Game(CreateRooms(), UserSetup());
             System.Console.WriteLine("You wake up confused and panic when you realize you have no idea where you are... You notice your shoes are gone?");
         }
+        //user options
         public void PlayerChoice()
         {
             System.Console.WriteLine("What do you want to do?");
@@ -265,6 +269,7 @@ namespace CastleGrimtol
                 PlayerChoice();
             }
         }
+        //option to play again or quit
         public void PlayAgain()
         {
             System.Console.WriteLine("Would you like to play again, yes or no?");
