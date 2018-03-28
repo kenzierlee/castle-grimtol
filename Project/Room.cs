@@ -7,7 +7,7 @@ namespace CastleGrimtol.Project
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public Dictionary<string, Room> Directions {get; set;}
+        public Dictionary<string, Room> Directions {get; set;} = new Dictionary<string, Room>();
         public List<Item> Items { get; set; } = new List<Item>();
         public void UseItem(Item item)
         {
@@ -16,7 +16,7 @@ namespace CastleGrimtol.Project
                 var inventory = Items[i];
                 if(inventory == item)
                 {
-                    
+
                 }
             }
         }

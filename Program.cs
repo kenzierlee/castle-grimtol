@@ -8,7 +8,9 @@ namespace CastleGrimtol
         public static void Main(string[] args)
         {
             Quest quest = new Quest();
+            Console.Clear();
             quest.Start();
+            quest.game.SearchRoom();
             while(quest.Playing)
             {
                 quest.GamePlay();

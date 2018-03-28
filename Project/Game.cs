@@ -71,25 +71,27 @@ namespace CastleGrimtol.Project
         }
         public void updateCurrentRoom(string direction)
         {
-            bool valid = false;
-            if(CurrentRoom.Name == "The Crypts")
+            Console.Clear();
+            SearchRoom();
+            if (CurrentRoom.Name == "The Crypt")
             {
+                bool valid = false;
                 for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
                 {
                     string item = CurrentPlayer.Inventory[i].Name;
-                    if(item == "Key")
+                    if (item == "Wrench")
                     {
                         CurrentRoom = CurrentRoom.Directions[direction];
                         valid = true;
                         SearchRoom();
                     }
                 }
+                if (!valid)
+                {
+                    System.Console.WriteLine("The Door is locked, it looks like you need to find a key to unlock it");
+                }
             }
-            if(!valid)
-            {
-                System.Console.WriteLine("The Door is locked, it looks like you need to find a key to unlock it");
-            }
-            if (CurrentRoom.Directions[direction] != null)
+            if (CurrentRoom.Directions[direction] == CurrentRoom.Directions[direction])
             {
                 CurrentRoom = CurrentRoom.Directions[direction];
                 SearchRoom();
@@ -101,9 +103,8 @@ namespace CastleGrimtol.Project
         }
         public void SearchRoom()
         {
-            Console.Clear();
             System.Console.WriteLine($@"
-            You've entered: {CurrentRoom.Name}
+            Room Name: {CurrentRoom.Name}
             {CurrentRoom.Description}");
         }
         public Game(Room currentRoom, Player currentPlayer)
