@@ -178,19 +178,27 @@ something to help get you loose from the restraint. All you notice
 is what feels like a wrench. Maybe you can leverage it against the 
 pipe or try to loosen it so you can break free?"
                 };
-                crypt.CreateItem("Paper", "Its Mostly Scribbles you can't make out, but theres a pattern maybe when you get out of the room you'll be able to read it.");
+                crypt.CreateItem("Paper", @"Its Mostly Scribbles you can't make out, but theres a 
+pattern maybe when you get out of the room you'll be able to read it.");
                 crypt.CreateItem("Wrench", "A rusty steel wrench");
                 northHallway.CreateItem("Key", "A Key, but for what?");
                 westHallway.CreateItem("Pocket Watch", "It appears to be broken, Maybe its worth something.");
                 southHallway.CreateItem("Shoes", "A pair of shoes just your size. How convenient...");
-                southHallway.CreateItem("Lighter", "A Lighter... I wonder what I could use this for? You notice the lighter is engraved, it reads '-J.S'. J.S? who could this belong to?");
-                broomCloset.CreateItem("Walkie Talkie", "You turn it on, and hear nothing but static. But it works... On the back a label reading PROPERTY OF SAM SMITH. Sam Smith? Why does that sound familiar?");
-                nursery.CreateItem("Hammer", "The Hammer appears as if it hasnt been touched in decades. You notice closer to the bottom of the hammer is what looks like a blood stain...");
+                southHallway.CreateItem("Lighter", @"A Lighter... I wonder what I could use this for? You notice 
+the lighter is engraved, it reads '-J.S'. J.S? who could this 
+belong to?");
+                broomCloset.CreateItem("Walkie Talkie", @"You turn it on, and hear nothing but static. But it works... 
+On the back a label reading PROPERTY OF SAM SMITH. Sam Smith? 
+Why does that sound familiar?");
+                nursery.CreateItem("Hammer", @"The Hammer appears as if it hasnt been touched in decades. 
+You notice closer to the bottom of the hammer is what looks 
+like a blood stain...");
                 lab.CreateItem("Gas Mask", "A rather old Gas Mask covered in dust");
                 crypt.Directions.Add("south", crematorium);
                 crypt.Directions.Add("north", westHallway);
                 crypt.Directions.Add("east", southHallway);
                 lab.Directions.Add("north", northHallway);
+                broomCloset.Directions.Add("north", northHallway);
                 northHallway.Directions.Add("south", lab);
                 northHallway.Directions.Add("west", westHallway);
                 westHallway.Directions.Add("north", broomCloset);
@@ -233,6 +241,7 @@ where you are... You notice your shoes are gone?");
             if (userInput[0] == 'g')
             {
                 validChoice = userInput;
+
                 game.updateCurrentRoom(input[1]);
             }
             if (userInput[0] == 'u')
@@ -274,7 +283,14 @@ where you are... You notice your shoes are gone?");
             }
             else if(validChoice.Length <1)
             {
-                System.Console.WriteLine("Your waisting time... Provide a valid choice. Enter 'help' if you need to see a list of valid options.");
+                System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
+Enter 'help' if you need to see a list of valid options.");
+                PlayerChoice();
+            }
+            else
+            {
+                System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
+Enter 'help' if you need to see a list of valid options.");
                 PlayerChoice();
             }
         }

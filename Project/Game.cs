@@ -8,6 +8,7 @@ namespace CastleGrimtol.Project
         public Room CurrentRoom { get; set; }
         public Player CurrentPlayer { get; set; }
         public bool Map { get; set; }
+        public bool WrenchUsed { get; set; }
         // public Dictionary<string, Game> Directions { get; set; }
         public void Setup()
         {
@@ -24,14 +25,16 @@ namespace CastleGrimtol.Project
             for (var i = 0; i < CurrentPlayer.Inventory.Count; i++)
             {
                 string item = CurrentPlayer.Inventory[i].Name.ToLower();
-                if (item == itemName)
+                if (item == input)
                 {
                     success = true;
                 }
             }
-            if (success && input == "paper" && CurrentRoom.Name != "The Crypt")
+            if (success && CurrentRoom.Name != "The Crypt")
             {
-                System.Console.WriteLine(@"
+                if(input == "paper")
+                {
+                    System.Console.WriteLine(@"
       N
     W   E
       S
@@ -47,6 +50,7 @@ namespace CastleGrimtol.Project
                 |                                      |
            Crematorium                          Walk in Freezer
                 ");
+                }
             }
             //             if (CurrentRoom.Name == "Walk In Freezer")
             //             {
@@ -97,7 +101,7 @@ run but its too late. Your dead...");
             }
             if (success && CurrentRoom.Name == "The Back Door")
             {
-                if (itemName == "Pocket Watch")
+                if (input == "pocket watch")
                 {
                     System.Console.WriteLine(@"
 You pull out the pocket watch you found from the 
@@ -114,6 +118,19 @@ get there. The cab driver replies angrily at your
 response and drives off. Your kidnapper's caught up 
 by now, he shoots at you from behind. You fall to the 
 ground. So close... You lost.");
+                }
+            }
+            if(success && CurrentRoom.Name == "The Crypt")
+            {
+                if(input == "wrench")
+                {
+                    System.Console.WriteLine(@"You use the wrench to loosen the pipe and leverage 
+against the pipe to break free. You quickly run to the door and open it...");
+                    WrenchUsed = true;
+                }
+                else
+                {
+                    System.Console.WriteLine("Unable to use that item at this time");
                 }
             }
             else if(success)
@@ -135,11 +152,11 @@ inventory to see what items you have");
         {
             if (CurrentPlayer.Inventory.Count > 0)
             {
-
+                System.Console.WriteLine("Enter: ");
                 for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
                 {
                     string item = CurrentPlayer.Inventory[i].Name;
-                    System.Console.WriteLine($"Enter: Use {item}");
+                    System.Console.WriteLine($"Use {item}");
                 }
             }
             else
@@ -174,8 +191,10 @@ inventory to see what items you have");
                         Map = true;
                     }
                     CurrentPlayer.Inventory.Add(CurrentRoom.Items[i]);
-                    System.Console.WriteLine("Item Added to Your Inventory");
-                    System.Console.WriteLine(CurrentRoom.Items[i].Description);
+                    System.Console.WriteLine(@"
+Item Added to Your Inventory");
+                    System.Console.WriteLine($@"Name: {CurrentRoom.Items[i].Name} 
+Description: {CurrentRoom.Items[i].Description}");
                     valid = true;
                 }
             }
@@ -190,21 +209,30 @@ inventory to see what items you have");
             Console.Clear();
             if (CurrentRoom.Name == "The Crypt")
             {
-                bool valid = false;
-                for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
-                {
-                    string item = CurrentPlayer.Inventory[i].Name;
-                    if (item == "Wrench")
-                    {
-                        System.Console.WriteLine("You use the wrench to loosen the pipe and leverage against it to break free. You quickly run to the door and open it...");
-                        CurrentRoom = CurrentRoom.Directions[direction];
-                        valid = true;
-                        SearchRoom();
-                    }
-                }
-                if (!valid)
+                // bool valid = false;
+                // for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
+                // {
+                //     string item = CurrentPlayer.Inventory[i].Name;
+                //     if (item == "Wrench")
+                //     {
+                //         System.Console.WriteLine("You use the wrench to loosen the pipe and leverage against it to break free. You quickly run to the door and open it...");
+                //         CurrentRoom = CurrentRoom.Directions[direction];
+                //         valid = true;
+                //         SearchRoom();
+                //     }
+                // }
+                if (!WrenchUsed)
                 {
                     System.Console.WriteLine("You cant get out of the room, you need to get yourself free from the pipe.");
+                }
+                else if(CurrentRoom.Directions[direction] != null)
+                {
+                    CurrentRoom = CurrentRoom.Directions[direction];
+                    SearchRoom();
+                }
+                else
+                {
+                    System.Console.WriteLine("Not a valid Option.");
                 }
             }
             else if (CurrentRoom.Directions[direction] != null)
@@ -212,7 +240,7 @@ inventory to see what items you have");
                 CurrentRoom = CurrentRoom.Directions[direction];
                 SearchRoom();
             }
-            else
+            else if(CurrentRoom.Directions[direction] == null)
             {
                 System.Console.WriteLine("Not a valid Option.");
             }
