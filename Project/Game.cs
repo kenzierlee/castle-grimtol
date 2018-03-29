@@ -29,7 +29,7 @@ namespace CastleGrimtol.Project
                     success = true;
                 }
             }
-            if (success && input == "paper" && Map && CurrentRoom.Name != "The Crypt")
+            if (success && input == "paper" && CurrentRoom.Name != "The Crypt")
             {
                 System.Console.WriteLine(@"
       N

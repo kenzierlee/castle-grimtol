@@ -325,64 +325,64 @@ where you are... You notice your shoes are gone?");
                     PlayAgain();
                 }
             }
-            if (game.CurrentRoom.Name == "Upstairs")
-            {
-                bool success = false;
-                for (var i = 0; i < game.CurrentPlayer.Inventory.Count; i++)
-                {
-                    string itemName = game.CurrentPlayer.Inventory[i].Name;
-                    if (itemName == "Key")
-                    {
-                        success = true;
-                    }
-                }
-                if (success)
-                {
-                    System.Console.WriteLine("You try the door, its locked. You use the key you found in the north Hallway to unlock the door, and much to your surprise it works! You slowly open the door and realize its not over yet. You need to sneek through the main house and get out so you can get help");
-                    bool valid = false;
-                    for (var i = 0; i < game.CurrentPlayer.Inventory.Count; i++)
-                    {
-                        string itemName = game.CurrentPlayer.Inventory[i].Name;
-                        if (itemName == "Walkie Talkie")
-                        {
-                            System.Console.WriteLine("You attempt to be quite, but the walkie talkie you grabbed from the broom closet goes off. You attempt to run to no avail. You meet your fate...");
-                            PlayAgain();
-                        }
-                    }
-                    if (valid)
-                    {
-                        PlayerChoice();
-                    }
-                }
-                else
-                {
-                    System.Console.WriteLine("You go to open the door but its locked, you hear footsteps rushing towards you. He heard you try to open the door, you turn around to run but its too late. Your dead...");
-                    PlayAgain();
-                }
-            }
-            if (game.CurrentRoom.Name == "The Back Door")
-            {
-                bool valid = false;
-                for (var i = 0; i < game.CurrentPlayer.Inventory.Count; i++)
-                {
-                    string itemName = game.CurrentPlayer.Inventory[i].Name;
-                    if (itemName == "Pocket Watch")
-                    {
-                        valid = true;
-                    }
-                }
-                if (valid)
-                {
-                    System.Console.WriteLine("You pull out the pocket watch you found from the house, and ask if he will accept it as payment");
-                    System.Console.WriteLine("The cab driver agrees. You get in the cab and take your first deep breathe. Its over, You Won!");
-                    PlayAgain();
-                }
-                else
-                {
-                    System.Console.WriteLine("You inform the cab driver you will pay him once you get there. The cab driver replies angrily at your response and drives off. Your kidnapper's caught up by now, he shoots at you from behind. You fall to the ground. So close... You lost.");
-                    PlayAgain();
-                }
-            }
+            // if (game.CurrentRoom.Name == "Upstairs")
+            // {
+            //     bool success = false;
+            //     for (var i = 0; i < game.CurrentPlayer.Inventory.Count; i++)
+            //     {
+            //         string itemName = game.CurrentPlayer.Inventory[i].Name;
+            //         if (itemName == "Key")
+            //         {
+            //             success = true;
+            //         }
+            //     }
+            //     if (success)
+            //     {
+            //         System.Console.WriteLine("You try the door, its locked. You use the key you found in the north Hallway to unlock the door, and much to your surprise it works! You slowly open the door and realize its not over yet. You need to sneek through the main house and get out so you can get help");
+            //         bool valid = false;
+            //         for (var i = 0; i < game.CurrentPlayer.Inventory.Count; i++)
+            //         {
+            //             string itemName = game.CurrentPlayer.Inventory[i].Name;
+            //             if (itemName == "Walkie Talkie")
+            //             {
+            //                 System.Console.WriteLine("You attempt to be quite, but the walkie talkie you grabbed from the broom closet goes off. You attempt to run to no avail. You meet your fate...");
+            //                 PlayAgain();
+            //             }
+            //         }
+            //         if (valid)
+            //         {
+            //             PlayerChoice();
+            //         }
+            //     }
+            //     else
+            //     {
+            //         System.Console.WriteLine("You go to open the door but its locked, you hear footsteps rushing towards you. He heard you try to open the door, you turn around to run but its too late. Your dead...");
+            //         PlayAgain();
+            //     }
+            // }
+            // if (game.CurrentRoom.Name == "The Back Door")
+            // {
+            //     bool valid = false;
+            //     for (var i = 0; i < game.CurrentPlayer.Inventory.Count; i++)
+            //     {
+            //         string itemName = game.CurrentPlayer.Inventory[i].Name;
+            //         if (itemName == "Pocket Watch")
+            //         {
+            //             valid = true;
+            //         }
+            //     }
+            //     if (valid)
+            //     {
+            //         System.Console.WriteLine("You pull out the pocket watch you found from the house, and ask if he will accept it as payment");
+            //         System.Console.WriteLine("The cab driver agrees. You get in the cab and take your first deep breathe. Its over, You Won!");
+            //         PlayAgain();
+            //     }
+            //     else
+            //     {
+            //         System.Console.WriteLine("You inform the cab driver you will pay him once you get there. The cab driver replies angrily at your response and drives off. Your kidnapper's caught up by now, he shoots at you from behind. You fall to the ground. So close... You lost.");
+            //         PlayAgain();
+            //     }
+            // }
             if (game.CurrentRoom.Name == "The Crematorium" || game.CurrentRoom.Name == "The Front Door")
             {
                 game.SearchRoom();
