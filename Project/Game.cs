@@ -125,7 +125,7 @@ ground. So close... You lost.");
                 if(input == "wrench")
                 {
                     System.Console.WriteLine(@"You use the wrench to loosen the pipe and leverage 
-against the pipe to break free. You quickly run to the door and open it...");
+against it to break free. You quickly run to the door and open it...");
                     WrenchUsed = true;
                 }
                 else
@@ -235,12 +235,12 @@ Description: {CurrentRoom.Items[i].Description}");
                     System.Console.WriteLine("Not a valid Option.");
                 }
             }
-            else if (CurrentRoom.Directions[direction] != null)
+            else if (CurrentRoom.Directions.ContainsKey(direction))
             {
                 CurrentRoom = CurrentRoom.Directions[direction];
                 SearchRoom();
             }
-            else if(CurrentRoom.Directions[direction] == null)
+            else
             {
                 System.Console.WriteLine("Not a valid Option.");
             }

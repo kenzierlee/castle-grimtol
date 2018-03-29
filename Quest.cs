@@ -241,8 +241,14 @@ where you are... You notice your shoes are gone?");
             if (userInput[0] == 'g')
             {
                 validChoice = userInput;
-
-                game.updateCurrentRoom(input[1]);
+                if(game.CurrentRoom.Directions.ContainsKey(input[1]))
+                {
+                    game.updateCurrentRoom(input[1]);
+                }
+                else
+                {
+                    System.Console.WriteLine("You cannot go that direction");
+                }
             }
             if (userInput[0] == 'u')
             {
@@ -287,12 +293,12 @@ where you are... You notice your shoes are gone?");
 Enter 'help' if you need to see a list of valid options.");
                 PlayerChoice();
             }
-            else
-            {
-                System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
-Enter 'help' if you need to see a list of valid options.");
-                PlayerChoice();
-            }
+//             else
+//             {
+//                 System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
+// Enter 'help' if you need to see a list of valid options.");
+//                 PlayerChoice();
+//             }
         }
         //sets up the 
         public void GamePlay()
