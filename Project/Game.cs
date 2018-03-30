@@ -59,9 +59,9 @@ namespace CastleGrimtol.Project
                 if (itemName == "key")
                 {
                     System.Console.WriteLine(@"
-You use the key you found in the north Hallway to unlock the door, 
+You use the key you found in the North Hallway to unlock the door, 
 and much to your surprise it works! You slowly open the door and 
-realize its not over yet. You need to sneek through the main 
+realize it's not over yet. You need to sneak through the main 
 house and get out so you can get help. 'Should I take the front
 door to the North? or the back door to the South?'");
                     return true;
@@ -71,7 +71,7 @@ door to the North? or the back door to the South?'");
                     System.Console.WriteLine(@"
 Your attempt to open the door fails, you hear footsteps rushing 
 towards you. He heard you try to open the door, you turn around to 
-run but its too late. Your dead...");
+run but it's too late. You're dead...");
                     return false;
                 }
             }
@@ -80,18 +80,18 @@ run but its too late. Your dead...");
                 if (itemName == "pocket watch")
                 {
                     System.Console.WriteLine(@"
-You pull out the pocket watch you found from the house, and ask if 
+You pull out the pocket watch you found in the house, and ask if 
 he will accept it as payment");
                     System.Console.WriteLine(@"
 The cab driver agrees. You get in the cab and take your first deep 
-breathe. Its over, You Won!");
+breath. It's over, You Won!");
                     return false;
                 }
                 else if(itemName != "pocket watch")
                 {
                     System.Console.WriteLine(@"
 You inform the cab driver you will pay him once you get there. The cab 
-driver replies angrily at your response and drives off. Your kidnapper's 
+driver replies angrily at your response and drives off. Your captor has 
 caught up by now, he shoots at you from behind. You fall to the ground. 
 So close... You lost.");
                     return false;
@@ -101,8 +101,8 @@ So close... You lost.");
             {
                 if (itemName == "wrench")
                 {
-                    System.Console.WriteLine(@"You use the wrench to loosen the pipe and leverage 
-against it to break free. You quickly run to the door and open it...");
+                    System.Console.WriteLine(@"You use the wrench to loosen the pipe and use 
+it as leverage to break free. You quickly run to the door and open it...");
                     WrenchUsed = true;
                     return true;
                 }
@@ -117,7 +117,7 @@ against it to break free. You quickly run to the door and open it...");
                 if (itemName == "lighter")
                 {
                     System.Console.WriteLine(@"You use the lighter to illuminate the wall, showing
-the number sequence 1121. What could this be used for?");
+the number sequence 1121. 'What could this be used for?'");
                     return true;
                 }
                 else
@@ -130,14 +130,14 @@ the number sequence 1121. What could this be used for?");
             {
                 if (success && itemName == "shoes")
                 {
-                    System.Console.WriteLine(@"You put on the shoes on.");
+                    System.Console.WriteLine(@"You put the shoes on.");
                     return true;
                 }
                 else
                 {
                     System.Console.WriteLine(@"You attempt to walk across the glass covered
-hallway. As the pieces of glass pierce your feet you stumble to your 
-knees from the unimagenable pain. You enter a state of shock, and 
+hallway. As the pieces of glass pierce your feet, you stumble to your 
+knees from the unimaginable pain. You enter a state of shock, and 
 shortly after bleed out");
                     return false;
                 }
@@ -150,7 +150,7 @@ shortly after bleed out");
             else
             {
                 System.Console.WriteLine(@"
-You dont not have that item in your inventory enter 
+You don't have that item in your inventory, enter 
 inventory to see what items you have");
                 return true;
             }
@@ -168,7 +168,7 @@ inventory to see what items you have");
             }
             else
             {
-                System.Console.WriteLine("You dont have any items in your inventory");
+                System.Console.WriteLine("You don't have any items in your inventory");
             }
         }
         public void ListDirections()
@@ -241,7 +241,7 @@ Description: {CurrentRoom.Items[i].Description}");
             {
                 if (!WrenchUsed)
                 {
-                    System.Console.WriteLine(@"You cant get out of the room, you need to get yourself free 
+                    System.Console.WriteLine(@"You can't get out of the room, you need to get yourself free 
 from the pipe.");
                 }
                 else if (WrenchUsed)
@@ -253,7 +253,7 @@ from the pipe.");
                     }
                     else
                     {
-                        System.Console.WriteLine("Not a valid Option.");
+                        System.Console.WriteLine("Not a Valid Option.");
                     }
                 }
             }

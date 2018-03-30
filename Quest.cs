@@ -26,31 +26,30 @@ the end of it... Hmmm..."
                     Name = "The West Hallway",
                     Description = @"
 Its a long narrow hallway, you hear yelling in the distance followed by what 
-sounded like 3 gunshots. You start running towards what looks to be a source 
-of light. You trip, when you like to see what you stumbled on you discover 
-its an arm... Just an arm, clutched in the arms hand looks to be a pocket 
-watch."
+sounds like 3 gunshots. You start running towards the only source of light. 
+You trip, when you like to see what you stumbled on you discover its an arm... 
+Just an arm, clutched in the arms hand looks to be a pocket watch."
                 };
                 Room southHallway = new Room()
                 {
                     Name = "The South Hallway",
                     Description = @"
-The hallways stacked high with what seems to be clothing, and shoes. 
+The hallway is stacked high with what seems to be clothing, and shoes. 
 The footsteps are getting louder. You need to hurry, they're getting 
-closer. You crawl over the waist high piles of clothing for what 
-seems to be forever, you reach for something to help you along and 
+closer! You crawl over the waist high piles of clothing for what 
+seems like forever, you reach for something to help you along and 
 notice a shimmering object amidst the blood stained clothes. You take 
-a closer look and notice its a lighter. You finally clamber over the 
-clothing. You gather yourself and stand up. A door to the North, and 
-South line the hallway. There is a corner further down the Hallway to
-the East. Quick where to next???"
+a closer look and notice its a lighter. Finally, you clamber over the 
+clothing, gather yourself, and stand up. A door to the North, and one  
+to the South line the hallway. There is a corner further down the 
+Hallway to the East. Quick where to next???"
                 };
                 Room eastHallway = new Room()
                 {
                     Name = "The East Hallway",
                     Description = @"
-The Hallway is at a steep incline, you get on your hands and knees 
-to attempt the climb."
+The Hallway is at a steep incline, at the top to the North you see a 
+door, you get on your hands and knees to attempt the climb."
                 };
                 Room lab = new Room()
                 {
@@ -58,11 +57,12 @@ to attempt the climb."
                     Description = @"
 The room is poorly lit but you can make out what looks to be a lab. 
 There's a table filled with surgical tools, and a table in the center 
-of the room with what looks to be restraints for arms. You panic as 
-you fear you will be the next victim strapped to the table as someone 
-performs some sort of experiment on you. You quickly look around the 
-room for something that might help you get out of this nightmare of a 
-place. All you see is eerie World War 2 memorabilia, including a gas mask."
+of the room with restraints for holding the subjects arms and legs. You 
+panic, fearing you will be the next victim strapped to the table as 
+someone performs experiments on you. You quickly look around the room for 
+something that might help you get out of this nightmare of a place. All you 
+see is eerie World War 2 memorabilia, including a gas mask. Hidden in a dark 
+northern corner of the room there is a hatch. ‘Wonder where this goes?’"
                 };
                 Room broomCloset = new Room()
                 {
@@ -76,31 +76,32 @@ useful in here, you're waisting time. Hurry where to next???"
                 {
                     Name = "Nursery",
                     Description = @"
-You feel along the walls for a light switch, you find it and turn the 
-lights on. The fluorescent light flickers, as you get a glimpse of what 
+You feel along the walls for a light switch, finding it, you turn on the 
+lights. The fluorescent light flickers, giving you a glimpse of what 
 seems to be a baby's nursery. Thats when you notice the crib in the corner 
 of the room... It's rocking back and forth. Better get out of here quick! 
 Out of the corner of your eye you notice a rusty old hammer and some wood. 
-It looks like someone was trying to make a changing table for the nursery."
+'It looks like someone was trying to make a changing table for the nursery.'"
                 };
                 Room crematorium = new Room()
                 {
                     Name = "The Crematorium",
                     Description = @"
-Its rather warm in here, you see what looks to a furnace, you get closer 
-and realize you're in a Crematory. Where are you??? You're hit over the 
-head, and meet your fate. All semblance of your existence is insenerated 
-and with you all the evidence..."
+Its rather warm in here, a glow radiates from what appears to be a furnace, 
+you get closer and realize you're in a Crematory. 'What kind of sick place 
+is this???' Suddenly, you're hit over the head, and meet your demise. Your 
+cpator throws your body into the Cremator and all semblance of your existence
+is incinerated and with it all the evidence you were ever even there..."
                 };
                 Room trophyRoom = new Room()
                 {
                     Name = "The Trophy Room",
                     Description = @"
-It appears to be a room lined with shelves, filled with 
+It appears to be a room lined with glass cased shelves, filled with 
 trophies and awards. You read a few and notice all the 
-awards are made out to a Samuel Smith. This must be his house, 
-he must be your captor. The man behind all of this. But why? 
-Why would he want you? You search the desk in the center of 
+awards are made out to a Samuel Smith. 'This must be his house, 
+he must be my captor. The man behind all of this. But why? 
+Why would he want me?' You search the desk in the center of 
 the room only to find a list. The list contains several dozen 
 names and... Yours is the last on the list... You continue to 
 look around and find nothing useful."
@@ -109,17 +110,17 @@ look around and find nothing useful."
                 {
                     Name = "The Wine Cellar",
                     Description = @"
-For such a desturbing place, the owner, has an amazing collection of 
-wine. You try not to get side tracked by all the wine, as you havent 
-had anything to drink in a long time."
+'For such a desturbing place, the owner, has an amazing collection of 
+wine.' You try not to get side tracked by all the vintage bottles, as 
+you havent had anything to drink in a long time."
                 };
                 Room walkInFreezer = new Room()
                 {
                     Name = "Walk In Freezer",
                     Description = @"
 burrrrr It's freezing in here, you flip on the lights, 'oh my... 
-Thats not... Thats not what I think it is... is it?? Are those... 
-Are those bodies.' You quickly turn back to leave and notice there 
+Thats not... Thats can't be what I think it is... is it?? Are those... 
+Are those bodies?' You quickly turn back to leave and notice there 
 isn't a handle to get out. You're stuck in here, where you'll soon freeze 
 to death. Quick there has to be some way to get out of here! You notice 
 a keypad next to the door. But what's the combination???"
@@ -129,21 +130,21 @@ a keypad next to the door. But what's the combination???"
                     Name = "Upstairs",
                     Description = @"
 'Could this be it? The door to freedom. Could this nightmare really 
-be over??' You try the door, its locked."
+be over???' You try the door, its locked. 'Maybe a key will open it.'"
                 };
                 Room frontDoor = new Room()
                 {
                     Name = "The Front Door",
                     Description = @"
-You can see it, a few feet away the front door. You walk towards it and 
-the floor boards creek. You run to the door as surely he's heard. But your 
+You can see it, a few feet away, the front door. You walk towards it, 
+the floorboards creak. You run to the door, as surely he's heard. But your 
 not fast enough, and you meet your fate..."
                 };
                 Room backDoor = new Room()
                 {
                     Name = "The Back Door",
                     Description = @"
-You check around for anyone, and when the coast is clear you run 
+You look around for anyone, and when the coast is clear you run 
 to the back door..."
                 };
                 Room road = new Room()
@@ -156,8 +157,8 @@ You start running through the woods towards the road..."
                 {
                     Name = "End of the North Hallway",
                     Description = @"
-A dead end. On the floor you find what caught
-your eye. A key, 'this has to be useful...'"
+A dead end. On the floor you find what caught your eye. A key, 
+'this has to be useful...'"
                 };
                 Room crypt = new Room()
                 {
@@ -168,18 +169,19 @@ devour any shimmer of hope. There's a door to the south and the one you
 entered from."
                 };
                 crypt.CreateItem("Paper", @"Its Mostly Scribbles you can't make out, but theres a 
-pattern maybe when you get out of the room you'll be able to read it.");
+pattern. Maybe when you get out of the room you'll be able to read it.");
                 crypt.CreateItem("Wrench", "A rusty steel wrench");
                 endHallway.CreateItem("Key", "A Key, but for what?");
-                westHallway.CreateItem("Pocket Watch", "It appears to be broken, Maybe its worth something.");
+                westHallway.CreateItem("Pocket Watch", "It appears to be broken, maybe it;s worth something.");
                 southHallway.CreateItem("Shoes", "A pair of shoes just your size. How convenient...");
-                southHallway.CreateItem("Lighter", @"A Lighter... I wonder what I could use this for? You notice 
+               southHallway.CreateItem("Lighter", @"A Lighter... ‘I wonder what I could use this for?’ You notice
 the lighter is engraved, it reads 'Use to bring light to things obscured
 by darkness'.");
-                broomCloset.CreateItem("Walkie Talkie", @"You turn it on, and hear nothing but static. But it works... 
-On the back a label reading PROPERTY OF SAM SMITH. Sam Smith? 
-Why does that sound familiar?");
-                nursery.CreateItem("Hammer", @"The Hammer appears as if it hasnt been touched in decades. 
+               broomCloset.CreateItem("Walkie Talkie", @"You turn it on, and hear nothing but static. But it works...
+A label on the back reads, PROPERTY OF SAM SMITH. ‘Sam Smith?
+Why does that sound familiar?’");
+
+                nursery.CreateItem("Hammer", @"The Hammer appears as if it hasn't been touched in decades. 
 You notice closer to the bottom of the hammer is what looks 
 like a blood stain...");
                 lab.CreateItem("Gas Mask", "A rather old Gas Mask covered in dust");
@@ -188,6 +190,7 @@ like a blood stain...");
                 crypt.Directions.Add("north", westHallway);
                 crypt.Directions.Add("east", southHallway);
                 lab.Directions.Add("south", northHallway);
+                lab.Directions.Add("north", crypt);
                 broomCloset.Directions.Add("south", westHallway);
                 broomCloset.Directions.Add("east", northHallway);
                 trophyRoom.Directions.Add("east", westHallway);
@@ -225,7 +228,7 @@ like a blood stain...");
         {
             game = new Game(CreateRooms, UserSetup());
             System.Console.WriteLine(@"
-You wake up in haze, confused, not knowing where you are. You notice your 
+You wake up in a haze, confused, not knowing where you are. You notice your 
 shoes are gone...? The smell of mold and decay are overwhelming. It's pitch 
 black with the exception of a faint light coming from underneath the door. 
 You notice a handcuff on your left wrist you follow the chain to what feels 
@@ -246,7 +249,13 @@ try to loosen it so you can break free?");
             string validChoice = "";
             string[] input = userInput.Split(" ");
             List<string> list = new List<string>(input);
-            if (userInput[0] == 'g')
+            if (userInput.Length < 1)
+            {
+                System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
+Enter 'help' if you need to see a list of valid options.");
+                PlayerChoice();
+            }
+            else if (userInput[0] == 'g')
             {
                 validChoice = userInput;
                 if (game.CurrentRoom.Directions.ContainsKey(input[1]))
@@ -258,7 +267,7 @@ try to loosen it so you can break free?");
                     System.Console.WriteLine("You cannot go that direction");
                 }
             }
-            if (userInput[0] == 'u')
+            else if (userInput[0] == 'u')
             {
                 validChoice = userInput;
                 list.RemoveAt(0);
@@ -268,14 +277,14 @@ try to loosen it so you can break free?");
                     PlayAgain();
                 }
             }
-            if (userInput[0] == 't')
+            else if (userInput[0] == 't')
             {
                 validChoice = userInput;
                 list.RemoveAt(0);
                 string newInput = string.Join(" ", list.ToArray());
                 game.TakeItem(newInput);
             }
-            if (userInput[0] == 'h')
+            else if (userInput[0] == 'h')
             {
                 validChoice = userInput;
                 System.Console.WriteLine("Directions you can go: ");
@@ -288,23 +297,17 @@ item you can take it will be added to your inventory");
                 System.Console.WriteLine("To see your Inventory Enter: inventory");
                 System.Console.WriteLine("To end the game Enter: quit");
             }
-            if (userInput[0] == 'q')
+            else if (userInput[0] == 'q')
             {
                 validChoice = userInput;
                 Playing = false;
                 //this will exit the game equivalent to ctrl c
                 //Environment.Exit(0);
             }
-            if (userInput[0] == 'i')
+            else if (userInput[0] == 'i')
             {
                 validChoice = userInput;
                 game.ListDirections();
-            }
-            else if (validChoice.Length < 1 || userInput.Length < 1)
-            {
-                System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
-Enter 'help' if you need to see a list of valid options.");
-                PlayerChoice();
             }
         }
         //sets up the 
@@ -346,14 +349,15 @@ Enter 'help' if you need to see a list of valid options.");
                 {
                     System.Console.WriteLine(@"
 On your run to the door the walkie talkie you grabbed from the 
-Broom Closet goes off... He hears this noise and quickly runs to you.
-You cant turn the handle fast enough and you meet your fate...");
+Broom Closet goes off... Your captor hears this noise and quickly 
+runs to you. You can't turn the handle fast enough and you meet your 
+fate...");
                     PlayAgain();
                 }
                 else
                 {
                     System.Console.WriteLine(@"
-You turn the handle get outside and notice a road to the north.");
+You turn the handle, get outside, and notice a road to the North.");
                     PlayerChoice();
                 }
             }
@@ -371,11 +375,11 @@ Tired of dealing with you he kills you. You lose...");
                 else
                 {
                     System.Console.WriteLine(@"You see headlights heading 
-in your direction. You wave your arms histarically hoping they'll stop. 
+in your direction. You wave your arms hysterically hoping they'll stop. 
 The car comes to an abrupt stop just in time. It's a cab the driver rolls 
-down the window and asks where your headed you respond with the police 
-station please. He proceeds to ask if you have money to pay for it. You 
-have no money.");
+down the window and asks where you're headed. You respond with the police 
+station please. He proceeds to ask if you have money to pay for it. 'How am
+I going to pay him? I have no money!'");
                     PlayerChoice();
                 }
             }
