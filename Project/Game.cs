@@ -38,6 +38,8 @@ namespace CastleGrimtol.Project
     W   E
       S
 
+                              Lab
+                               |
         Broom Closet --------------------N. Hallway-----------------|
                 |       |                                               *
                 |----Nursery                                            |
@@ -83,9 +85,9 @@ he will accept it as payment");
                     System.Console.WriteLine(@"
 The cab driver agrees. You get in the cab and take your first deep 
 breathe. Its over, You Won!");
-                    return true;
+                    return false;
                 }
-                else
+                else if(itemName != "pocket watch")
                 {
                     System.Console.WriteLine(@"
 You inform the cab driver you will pay him once you get there. The cab 
@@ -124,9 +126,9 @@ the number sequence 1121. What could this be used for?");
                     return true;
                 }
             }
-            if(CurrentRoom.Name == "The North Hallway")
+            if (CurrentRoom.Name == "The North Hallway")
             {
-                if(success && itemName == "shoes")
+                if (success && itemName == "shoes")
                 {
                     System.Console.WriteLine(@"You put on the shoes on.");
                     return true;
@@ -253,40 +255,6 @@ from the pipe.");
                     {
                         System.Console.WriteLine("Not a valid Option.");
                     }
-                }
-            }
-            else if (CurrentRoom.Name == "The Back Door")
-            {
-                var walkie = CurrentPlayer.Inventory.Find(i => i.Name == "Walkie Talkie");
-                if (walkie != null)
-                {
-                    System.Console.WriteLine(@"On your run to the door the walkie talkie you grabbed from the 
-Broom Closet goes off... He hears this noise and quickly runs to you.
-You cant turn the handle fast enough and you meet your fate...");
-                }
-                else
-                {
-                    System.Console.WriteLine(@"You turn the handle get outside and notice a road to the north.");
-                }
-            }
-            else if (CurrentRoom.Name == "The Road")
-            {
-                var wine = CurrentPlayer.Inventory.Find(i => i.Name == "Wine");
-                var mask = CurrentPlayer.Inventory.Find(i => i.Name == "Gas Mask");
-                if (wine != null && mask != null)
-                {
-                    System.Console.WriteLine(@"The wine and gas mask you stole from the house slow you down
-on your way to the road, and your kidnapper catches up to you. 
-Tired of dealing with you he kills you. You lose...");
-                }
-                else
-                {
-                    System.Console.WriteLine(@"You see headlights heading 
-in your direction. You wave your arms histarically hoping they'll stop. 
-The car comes to an abrupt stop just in time. It's a cab the driver rolls 
-down the window and asks where your headed you respond with the police 
-station please. He proceeds to ask if you have money to pay for it. You 
-have no money.");
                 }
             }
             else

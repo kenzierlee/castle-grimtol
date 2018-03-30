@@ -149,7 +149,8 @@ to the back door..."
                 Room road = new Room()
                 {
                     Name = "The Road",
-                    Description = "You start running through the woods towards the road..."
+                    Description = @"
+You start running through the woods towards the road..."
                 };
                 Room endHallway = new Room()
                 {
@@ -186,12 +187,13 @@ like a blood stain...");
                 crypt.Directions.Add("south", crematorium);
                 crypt.Directions.Add("north", westHallway);
                 crypt.Directions.Add("east", southHallway);
-                lab.Directions.Add("north", northHallway);
+                lab.Directions.Add("south", northHallway);
                 broomCloset.Directions.Add("south", westHallway);
                 broomCloset.Directions.Add("east", northHallway);
                 trophyRoom.Directions.Add("east", westHallway);
                 endHallway.Directions.Add("west", northHallway);
-                northHallway.Directions.Add("south", lab);
+                northHallway.Directions.Add("south", nursery);
+                northHallway.Directions.Add("north", lab);
                 northHallway.Directions.Add("west", broomCloset);
                 northHallway.Directions.Add("east", endHallway);
                 westHallway.Directions.Add("north", broomCloset);
@@ -247,7 +249,7 @@ try to loosen it so you can break free?");
             if (userInput[0] == 'g')
             {
                 validChoice = userInput;
-                if(game.CurrentRoom.Directions.ContainsKey(input[1]))
+                if (game.CurrentRoom.Directions.ContainsKey(input[1]))
                 {
                     game.updateCurrentRoom(input[1]);
                 }
@@ -261,7 +263,7 @@ try to loosen it so you can break free?");
                 validChoice = userInput;
                 list.RemoveAt(0);
                 string newInput = string.Join(" ", list.ToArray());
-                if(!game.UseItem(newInput))
+                if (!game.UseItem(newInput))
                 {
                     PlayAgain();
                 }
@@ -298,7 +300,7 @@ item you can take it will be added to your inventory");
                 validChoice = userInput;
                 game.ListDirections();
             }
-            else if(validChoice.Length <1 || userInput.Length < 1)
+            else if (validChoice.Length < 1 || userInput.Length < 1)
             {
                 System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
 Enter 'help' if you need to see a list of valid options.");
@@ -337,10 +339,46 @@ Enter 'help' if you need to see a list of valid options.");
             {
                 PlayAgain();
             }
-            // if(game.CurrentRoom.Name == "The Back Door")
-            // {
-
-            // }
+            if (game.CurrentRoom.Name == "The Back Door")
+            {
+                var walkie = game.CurrentPlayer.Inventory.Find(i => i.Name == "Walkie Talkie");
+                if (walkie != null)
+                {
+                    System.Console.WriteLine(@"
+On your run to the door the walkie talkie you grabbed from the 
+Broom Closet goes off... He hears this noise and quickly runs to you.
+You cant turn the handle fast enough and you meet your fate...");
+                    PlayAgain();
+                }
+                else
+                {
+                    System.Console.WriteLine(@"
+You turn the handle get outside and notice a road to the north.");
+                    PlayerChoice();
+                }
+            }
+            if (game.CurrentRoom.Name == "The Road")
+            {
+                var wine = game.CurrentPlayer.Inventory.Find(i => i.Name == "Wine");
+                var mask = game.CurrentPlayer.Inventory.Find(i => i.Name == "Gas Mask");
+                if (wine != null && mask != null)
+                {
+                    System.Console.WriteLine(@"The wine and gas mask you stole from the house slow you down
+on your way to the road, and your captor catches up to you. 
+Tired of dealing with you he kills you. You lose...");
+                    PlayAgain();
+                }
+                else
+                {
+                    System.Console.WriteLine(@"You see headlights heading 
+in your direction. You wave your arms histarically hoping they'll stop. 
+The car comes to an abrupt stop just in time. It's a cab the driver rolls 
+down the window and asks where your headed you respond with the police 
+station please. He proceeds to ask if you have money to pay for it. You 
+have no money.");
+                    PlayerChoice();
+                }
+            }
             else
             {
                 PlayerChoice();
