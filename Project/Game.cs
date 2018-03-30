@@ -18,38 +18,38 @@ namespace CastleGrimtol.Project
         {
             quest.Start();
         }
-        public void UseItem(string itemName)
+        public bool UseItem(string itemName)
         {
-            var input = itemName.ToLower();
             bool success = false;
             for (var i = 0; i < CurrentPlayer.Inventory.Count; i++)
             {
                 string item = CurrentPlayer.Inventory[i].Name.ToLower();
-                if (item == input)
+                if (item == itemName)
                 {
                     success = true;
                 }
             }
             if (success && CurrentRoom.Name != "The Crypt")
             {
-                if(input == "paper")
+                if (itemName == "paper")
                 {
                     System.Console.WriteLine(@"
       N
     W   E
       S
 
-        Broom Closet -----------------N. Hallway-----------------|
-                |        |                                              *
-                |-----Nursery                                           |
-            W. Hallway                                                  |
-                |                                                  E. Hallway
- Trophy Room----|           Wine Cellar                                 |
-                |                |                                      |   
+        Broom Closet --------------------N. Hallway-----------------|
+                |       |                                               *
+                |----Nursery                                            |
+                |                                                       |
+            W. Hallway                                              E. Hallway
+                |           Wine Cellar                                 |
+ Trophy Room----|                |                                      |   
               Crypt----------------------S. Hallway----------------------
                 |                                      |
            Crematorium                          Walk in Freezer
                 ");
+                    return true;
                 }
             }
             //             if (CurrentRoom.Name == "Walk In Freezer")
@@ -80,68 +80,72 @@ namespace CastleGrimtol.Project
             //             }
             if (success && CurrentRoom.Name == "Upstairs")
             {
-                if (input == "key")
+                if (itemName == "key")
                 {
                     System.Console.WriteLine(@"
-You try the door, its locked. You use the key 
-you found in the north Hallway to unlock the door, 
-and much to your surprise it works! You slowly 
-open the door and realize its not over yet. You 
-need to sneek through the main house and get out 
-so you can get help");
+You use the key you found in the north Hallway to unlock the door, 
+and much to your surprise it works! You slowly open the door and 
+realize its not over yet. You need to sneek through the main 
+house and get out so you can get help");
+                    return true;
                 }
                 else
                 {
                     System.Console.WriteLine(@"
-You go to open the door but its locked, you 
-hear footsteps rushing towards you. He heard 
-you try to open the door, you turn around to 
+Your attempt to open the door fails, you hear footsteps rushing 
+towards you. He heard you try to open the door, you turn around to 
 run but its too late. Your dead...");
+                    return false;
                 }
             }
-            if (success && CurrentRoom.Name == "The Back Door")
+            if (success && CurrentRoom.Name == "The Road")
             {
-                if (input == "pocket watch")
+                if (itemName == "pocket watch")
                 {
                     System.Console.WriteLine(@"
-You pull out the pocket watch you found from the 
-house, and ask if he will accept it as payment");
+You pull out the pocket watch you found from the house, and ask if 
+he will accept it as payment");
                     System.Console.WriteLine(@"
-The cab driver agrees. You get in the cab and 
-take your first deep breathe. Its over, You Won!");
+The cab driver agrees. You get in the cab and take your first deep 
+breathe. Its over, You Won!");
+                    return true;
                 }
                 else
                 {
                     System.Console.WriteLine(@"
-You inform the cab driver you will pay him once you 
-get there. The cab driver replies angrily at your 
-response and drives off. Your kidnapper's caught up 
-by now, he shoots at you from behind. You fall to the 
-ground. So close... You lost.");
+You inform the cab driver you will pay him once you get there. The cab 
+driver replies angrily at your response and drives off. Your kidnapper's 
+caught up by now, he shoots at you from behind. You fall to the ground. 
+So close... You lost.");
+                    return false;
                 }
             }
-            if(success && CurrentRoom.Name == "The Crypt")
+            if (success && CurrentRoom.Name == "The Crypt")
             {
-                if(input == "wrench")
+                if (itemName == "wrench")
                 {
                     System.Console.WriteLine(@"You use the wrench to loosen the pipe and leverage 
 against it to break free. You quickly run to the door and open it...");
                     WrenchUsed = true;
+                    return true;
                 }
                 else
                 {
                     System.Console.WriteLine("Unable to use that item at this time");
+                    return true;
                 }
             }
-            else if(success)
+            else if (success)
             {
                 System.Console.WriteLine("Unable to use that item at this time");
+                return true;
             }
             else
             {
                 System.Console.WriteLine(@"
 You dont not have that item in your inventory enter 
 inventory to see what items you have");
+                return true;
             }
             // if (CurrentRoom.Name == "The Crematorium" || CurrentRoom.Name == "The Front Door")
             // {
@@ -181,6 +185,15 @@ inventory to see what items you have");
         public void TakeItem(string itemName)
         {
             bool valid = false;
+            if (CurrentPlayer.Inventory.Count > 0)
+            {
+                var item = CurrentRoom.Items.Find(i => i.Name.ToLower() == itemName);
+                if (item != null)
+                {
+                    System.Console.WriteLine("You already have that item in your inventory");
+                    valid = true;
+                }
+            }
             for (var i = 0; i < CurrentRoom.Items.Count; i++)
             {
                 string name = CurrentRoom.Items[i].Name.ToLower();
@@ -196,6 +209,7 @@ Item Added to Your Inventory");
                     System.Console.WriteLine($@"Name: {CurrentRoom.Items[i].Name} 
 Description: {CurrentRoom.Items[i].Description}");
                     valid = true;
+                    CurrentRoom.Items.Remove(CurrentRoom.Items[i]);
                 }
             }
             if (!valid)
@@ -223,26 +237,67 @@ Description: {CurrentRoom.Items[i].Description}");
                 // }
                 if (!WrenchUsed)
                 {
-                    System.Console.WriteLine("You cant get out of the room, you need to get yourself free from the pipe.");
+                    System.Console.WriteLine(@"You cant get out of the room, you need to get yourself free 
+from the pipe.");
                 }
-                else if(CurrentRoom.Directions[direction] != null)
+                else if (WrenchUsed)
                 {
-                    CurrentRoom = CurrentRoom.Directions[direction];
-                    SearchRoom();
+                    if (CurrentRoom.Directions.ContainsKey(direction))
+                    {
+                        SearchRoom();
+                        CurrentRoom = CurrentRoom.Directions[direction];
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Not a valid Option.");
+                    }
+                }
+            }
+            if (CurrentRoom.Name == "The Back Door")
+            {
+                var walkie = CurrentPlayer.Inventory.Find(i => i.Name == "Walkie Talkie");
+                if (walkie != null)
+                {
+                    System.Console.WriteLine(@"On your run to the door the walkie talkie you grabbed from the 
+Broom Closet goes off... He hears this noise and quickly runs to you.
+You cant turn the handle fast enough and you meet your fate...");
                 }
                 else
                 {
-                    System.Console.WriteLine("Not a valid Option.");
+                    System.Console.WriteLine(@"You turn the handle get outside and notice a road to the north.");
                 }
             }
-            else if (CurrentRoom.Directions.ContainsKey(direction))
+            if (CurrentRoom.Name == "The Road")
+            {
+                var wine = CurrentPlayer.Inventory.Find(i => i.Name == "Wine");
+                var mask = CurrentPlayer.Inventory.Find(i => i.Name == "Gas Mask");
+                if (wine != null && mask != null)
+                {
+                    System.Console.WriteLine(@"The wine and gas mask you stole from the house slow you down
+on your way to the road, and your kidnapper catches up to you. 
+Tired of dealing with you he kills you. You lose...");
+                }
+                else
+                {
+                    System.Console.WriteLine(@"You see headlights heading 
+in your direction. You wave your arms histarically hoping they'll stop. 
+The car comes to an abrupt stop just in time. It's a cab the driver rolls 
+down the window and asks where your headed you respond with the police 
+station please. He proceeds to ask if you have money to pay for it. You 
+have no money.");
+                }
+            }
+            else if (CurrentRoom.Directions.ContainsKey(direction) && CurrentRoom.Name != "The Crypt")
             {
                 CurrentRoom = CurrentRoom.Directions[direction];
                 SearchRoom();
             }
             else
             {
-                System.Console.WriteLine("Not a valid Option.");
+                if (CurrentRoom.Name != "The Crypt")
+                {
+                    System.Console.WriteLine("Not a valid Option.");
+                }
             }
         }
         public void SearchRoom()
