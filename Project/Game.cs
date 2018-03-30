@@ -60,7 +60,8 @@ namespace CastleGrimtol.Project
 You use the key you found in the north Hallway to unlock the door, 
 and much to your surprise it works! You slowly open the door and 
 realize its not over yet. You need to sneek through the main 
-house and get out so you can get help");
+house and get out so you can get help. 'Should I take the front
+door to the North? or the back door to the South?'");
                     return true;
                 }
                 else
