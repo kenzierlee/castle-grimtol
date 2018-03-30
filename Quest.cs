@@ -14,15 +14,16 @@ namespace CastleGrimtol
             {
                 Room northHallway = new Room()
                 {
-                    Name = "The north Hallway",
+                    Name = "The North Hallway",
                     Description = @"
 Another long hallway, only this ones filled with shattered glass scattered all 
-across the floor. You see something shinning at the end of it... It looks like 
-a key? Hmmm..."
+across the floor. 'I have to be careful... This glass is sharp and unavoidable.
+There's no way my bare feet could handle this.' You see something shinning at 
+the end of it... Hmmm..."
                 };
                 Room westHallway = new Room()
                 {
-                    Name = "The west Hallway",
+                    Name = "The West Hallway",
                     Description = @"
 Its a long narrow hallway, you hear yelling in the distance followed by what 
 sounded like 3 gunshots. You start running towards what looks to be a source 
@@ -32,19 +33,21 @@ watch."
                 };
                 Room southHallway = new Room()
                 {
-                    Name = "The south Hallway",
+                    Name = "The South Hallway",
                     Description = @"
 The hallways stacked high with what seems to be clothing, and shoes. 
-You hear someone coming you need to hurry up they're getting closer. 
-You crawl over the waist high piles of clothing for what seems to 
-be forever, you reach for something to help you along and notice a 
-shimmering object amidst the blood stained clothes. You take a closer 
-look and notice its a lighter. You finally reach the end of the hallway. 
-You gather yourself and stand up. Quick where to next???"
+The footsteps are getting louder. You need to hurry, they're getting 
+closer. You crawl over the waist high piles of clothing for what 
+seems to be forever, you reach for something to help you along and 
+notice a shimmering object amidst the blood stained clothes. You take 
+a closer look and notice its a lighter. You finally clamber over the 
+clothing. You gather yourself and stand up. A door to the North, and 
+South line the hallway. There is a corner further down the Hallway to
+the East. Quick where to next???"
                 };
                 Room eastHallway = new Room()
                 {
-                    Name = "The east Hallway",
+                    Name = "The East Hallway",
                     Description = @"
 The Hallway is at a steep incline, you get on your hands and knees 
 to attempt the climb."
@@ -76,18 +79,18 @@ useful in here, you're waisting time. Hurry where to next???"
 You feel along the walls for a light switch, you find it and turn the 
 lights on. The fluorescent light flickers, as you get a glimpse of what 
 seems to be a baby's nursery. Thats when you notice the crib in the corner 
-of the room... It's rocking back and forth. Out of the corner of your eye 
-you notice a rusty old hammer and some wood. It looks like someone was 
-trying to make a changing table for the nursery."
+of the room... It's rocking back and forth. Better get out of here quick! 
+Out of the corner of your eye you notice a rusty old hammer and some wood. 
+It looks like someone was trying to make a changing table for the nursery."
                 };
                 Room crematorium = new Room()
                 {
                     Name = "The Crematorium",
                     Description = @"
 Its rather warm in here, you see what looks to a furnace, you get closer 
-and realize you're in a Crematory. Where are you??? Your hit over the head, 
-and meet your fate. All evidence of you is insenerated and with you all 
-the evidence..."
+and realize you're in a Crematory. Where are you??? You're hit over the 
+head, and meet your fate. All semblance of your existence is insenerated 
+and with you all the evidence..."
                 };
                 Room trophyRoom = new Room()
                 {
@@ -96,29 +99,29 @@ the evidence..."
 It appears to be a room lined with shelves, filled with 
 trophies and awards. You read a few and notice all the 
 awards are made out to a Samuel Smith. This must be his house, 
-he must be your kidnapper. The man behind all of this. But why? 
+he must be your captor. The man behind all of this. But why? 
 Why would he want you? You search the desk in the center of 
 the room only to find a list. The list contains several dozen 
-names and... Yours is one of them... You continue to look 
-around and find nothing useful."
+names and... Yours is the last on the list... You continue to 
+look around and find nothing useful."
                 };
                 Room wineCellar = new Room()
                 {
                     Name = "The Wine Cellar",
                     Description = @"
-For such a desturbing place this room has an amazing collection of wines. 
-You try not to get side tracked by the wines, as you are havent had anything 
-to drink in a long time."
+For such a desturbing place, the owner, has an amazing collection of 
+wine. You try not to get side tracked by all the wine, as you havent 
+had anything to drink in a long time."
                 };
                 Room walkInFreezer = new Room()
                 {
                     Name = "Walk In Freezer",
                     Description = @"
-burrrrr It's freezing in here, you flip on the lights and oh my... 
-Thats not... Thats not what you think it is... is it?? Are those... 
-Are those bodies. You quickly turn back to leave and notice there 
-is no handle to get out. Your stuck in here, where you'll soon freeze 
-to death. Quick there has to be some way to get out of here. You notice 
+burrrrr It's freezing in here, you flip on the lights, 'oh my... 
+Thats not... Thats not what I think it is... is it?? Are those... 
+Are those bodies.' You quickly turn back to leave and notice there 
+isn't a handle to get out. You're stuck in here, where you'll soon freeze 
+to death. Quick there has to be some way to get out of here! You notice 
 a keypad next to the door. But what's the combination???"
                 };
                 Room upstairs = new Room()
@@ -148,31 +151,30 @@ to the back door..."
                     Name = "The Road",
                     Description = "You start running through the woods towards the road..."
                 };
+                Room endHallway = new Room()
+                {
+                    Name = "End of the North Hallway",
+                    Description = @"
+A dead end. On the floor you find what caught
+your eye. A key, 'this has to be useful...'"
+                };
                 Room crypt = new Room()
                 {
                     Name = "The Crypt",
                     Description = @"
-It's dark, you can hardly see in front of you. You notice a handcuff on your 
-left wrist you follow the chain to what feels like a pipe. You yank the 
-chain to attempt to free yourself to no avail. You feel around and notice 
-a slip of paper on the ground, however its too dark in here to read the 
-contents. You can hardly make it out but it looks as though a number 
-sequence is written on the wall 1121. You hear footsteps that sound like 
-they're coming from above you. You need to get out, you need to get help. 
-You continue to search the room as best as you can for something to help 
-get you loose from the restraint. All you notice is what feels like a 
-wrench. Maybe you can leverage it against the pipe or try to loosen it so 
-you can break free?"
+A dark musty room that wreeks of death and despair. The darkness seems to
+devour any shimmer of hope. There's a door to the south and the one you
+entered from."
                 };
                 crypt.CreateItem("Paper", @"Its Mostly Scribbles you can't make out, but theres a 
 pattern maybe when you get out of the room you'll be able to read it.");
                 crypt.CreateItem("Wrench", "A rusty steel wrench");
-                northHallway.CreateItem("Key", "A Key, but for what?");
+                endHallway.CreateItem("Key", "A Key, but for what?");
                 westHallway.CreateItem("Pocket Watch", "It appears to be broken, Maybe its worth something.");
                 southHallway.CreateItem("Shoes", "A pair of shoes just your size. How convenient...");
                 southHallway.CreateItem("Lighter", @"A Lighter... I wonder what I could use this for? You notice 
-the lighter is engraved, it reads '-J.S'. J.S? who could this 
-belong to?");
+the lighter is engraved, it reads 'Use to bring light to things obscured
+by darkness'.");
                 broomCloset.CreateItem("Walkie Talkie", @"You turn it on, and hear nothing but static. But it works... 
 On the back a label reading PROPERTY OF SAM SMITH. Sam Smith? 
 Why does that sound familiar?");
@@ -187,8 +189,11 @@ like a blood stain...");
                 lab.Directions.Add("north", northHallway);
                 broomCloset.Directions.Add("south", westHallway);
                 broomCloset.Directions.Add("east", northHallway);
+                trophyRoom.Directions.Add("east", westHallway);
+                endHallway.Directions.Add("west", northHallway);
                 northHallway.Directions.Add("south", lab);
                 northHallway.Directions.Add("west", broomCloset);
+                northHallway.Directions.Add("east", endHallway);
                 westHallway.Directions.Add("north", broomCloset);
                 westHallway.Directions.Add("west", trophyRoom);
                 westHallway.Directions.Add("east", nursery);
@@ -198,6 +203,7 @@ like a blood stain...");
                 southHallway.Directions.Add("south", walkInFreezer);
                 southHallway.Directions.Add("east", eastHallway);
                 eastHallway.Directions.Add("north", upstairs);
+                eastHallway.Directions.Add("west", southHallway);
                 nursery.Directions.Add("west", westHallway);
                 nursery.Directions.Add("north", northHallway);
                 upstairs.Directions.Add("north", frontDoor);
@@ -217,8 +223,18 @@ like a blood stain...");
         {
             game = new Game(CreateRooms, UserSetup());
             System.Console.WriteLine(@"
-You wake up confused and panic when you realize you have no idea where 
-you are... You notice your shoes are gone?");
+You wake up in haze, confused, not knowing where you are. You notice your 
+shoes are gone...? The smell of mold and decay are overwhelming. It's pitch 
+black with the exception of a faint light coming from underneath the door. 
+You notice a handcuff on your left wrist you follow the chain to what feels 
+like a pipe. You yank the chain to attempt to free yourself to no avail. 
+You feel around and notice a slip of paper on the ground, however its too 
+dark in here to read the contents. You hear footsteps that sound like 
+they're coming from above you. You need to get out, you need to get help! 
+You continue to search the room as best as you can for something to help 
+get you loose from the restraint. Your hand stumbles across something that 
+feels like a metal wrench. Maybe you can leverage it against the pipe or 
+try to loosen it so you can break free?");
         }
         //user options
         public void PlayerChoice()
@@ -280,7 +296,7 @@ you are... You notice your shoes are gone?");
                 validChoice = userInput;
                 game.ListDirections();
             }
-            else if(validChoice.Length <1)
+            else if(validChoice.Length <1 || userInput.Length < 1)
             {
                 System.Console.WriteLine(@"Your waisting time... Provide a valid choice. 
 Enter 'help' if you need to see a list of valid options.");

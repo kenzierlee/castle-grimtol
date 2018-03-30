@@ -48,36 +48,10 @@ namespace CastleGrimtol.Project
               Crypt----------------------S. Hallway----------------------
                 |                                      |
            Crematorium                          Walk in Freezer
-                ");
+                    ");
                     return true;
                 }
             }
-            //             if (CurrentRoom.Name == "Walk In Freezer")
-            //             {
-            //                 System.Console.WriteLine("Hurry enter a four digit code!");
-            //                 string input = Console.ReadLine();
-            //                 int code = 0;
-            //                 bool valid = int.TryParse(input, out code);
-            //                 if (valid)
-            //                 {
-            //                     if (code == 1121)
-            //                     {
-            //                         System.Console.WriteLine("The door opens");
-            //                     }
-            //                     else
-            //                     {
-            //                         System.Console.WriteLine(@"
-            // You entered the wrong code, and eventually freeze 
-            // to death...");
-            //                     }
-            //                 }
-            //                 else
-            //                 {
-            //                     System.Console.WriteLine(@"
-            // You entered the wrong code, and eventually freeze 
-            // to death...");
-            //                 }
-            //             }
             if (success && CurrentRoom.Name == "Upstairs")
             {
                 if (itemName == "key")
@@ -135,6 +109,36 @@ against it to break free. You quickly run to the door and open it...");
                     return true;
                 }
             }
+            if (success && CurrentRoom.Name == "The South Hallway")
+            {
+                if (itemName == "lighter")
+                {
+                    System.Console.WriteLine(@"You use the lighter to illuminate the wall, showing
+the number sequence 1121. What could this be used for?");
+                    return true;
+                }
+                else
+                {
+                    System.Console.WriteLine("Unable to use that item at this time");
+                    return true;
+                }
+            }
+            if(CurrentRoom.Name == "The North Hallway")
+            {
+                if(success && itemName == "shoes")
+                {
+                    System.Console.WriteLine(@"You put on the shoes on.");
+                    return true;
+                }
+                else
+                {
+                    System.Console.WriteLine(@"You attempt to walk across the glass covered
+hallway. As the pieces of glass pierce your feet you stumble to your 
+knees from the unimagenable pain. You enter a state of shock, and 
+shortly after bleed out");
+                    return false;
+                }
+            }
             else if (success)
             {
                 System.Console.WriteLine("Unable to use that item at this time");
@@ -147,10 +151,6 @@ You dont not have that item in your inventory enter
 inventory to see what items you have");
                 return true;
             }
-            // if (CurrentRoom.Name == "The Crematorium" || CurrentRoom.Name == "The Front Door")
-            // {
-            //     SearchRoom();
-            // }
         }
         public void ListInventory()
         {
@@ -172,9 +172,17 @@ inventory to see what items you have");
         {
             if (CurrentRoom.Directions.Count > 0)
             {
-                foreach (var item in CurrentRoom.Directions)
+                if (WrenchUsed)
                 {
-                    System.Console.WriteLine($"Enter: Go {item.Key}");
+                    System.Console.WriteLine("Enter: ");
+                    foreach (var item in CurrentRoom.Directions)
+                    {
+                        System.Console.WriteLine($"Go {item.Key}");
+                    }
+                }
+                else
+                {
+                    System.Console.WriteLine("No Directions Avaliable.");
                 }
             }
             else
@@ -188,7 +196,7 @@ inventory to see what items you have");
             if (CurrentPlayer.Inventory.Count > 0)
             {
                 var item = CurrentRoom.Items.Find(i => i.Name.ToLower() == itemName);
-                if (item != null)
+                if (CurrentPlayer.Inventory.Contains(item))
                 {
                     System.Console.WriteLine("You already have that item in your inventory");
                     valid = true;
@@ -221,20 +229,13 @@ Description: {CurrentRoom.Items[i].Description}");
         public void updateCurrentRoom(string direction)
         {
             Console.Clear();
-            if (CurrentRoom.Name == "The Crypt")
+            if (CurrentRoom.Directions.ContainsKey(direction) && CurrentRoom.Name != "The Crypt")
             {
-                // bool valid = false;
-                // for (int i = 0; i < CurrentPlayer.Inventory.Count; i++)
-                // {
-                //     string item = CurrentPlayer.Inventory[i].Name;
-                //     if (item == "Wrench")
-                //     {
-                //         System.Console.WriteLine("You use the wrench to loosen the pipe and leverage against it to break free. You quickly run to the door and open it...");
-                //         CurrentRoom = CurrentRoom.Directions[direction];
-                //         valid = true;
-                //         SearchRoom();
-                //     }
-                // }
+                CurrentRoom = CurrentRoom.Directions[direction];
+                SearchRoom();
+            }
+            else if (CurrentRoom.Name == "The Crypt")
+            {
                 if (!WrenchUsed)
                 {
                     System.Console.WriteLine(@"You cant get out of the room, you need to get yourself free 
@@ -244,8 +245,8 @@ from the pipe.");
                 {
                     if (CurrentRoom.Directions.ContainsKey(direction))
                     {
-                        SearchRoom();
                         CurrentRoom = CurrentRoom.Directions[direction];
+                        SearchRoom();
                     }
                     else
                     {
@@ -253,7 +254,7 @@ from the pipe.");
                     }
                 }
             }
-            if (CurrentRoom.Name == "The Back Door")
+            else if (CurrentRoom.Name == "The Back Door")
             {
                 var walkie = CurrentPlayer.Inventory.Find(i => i.Name == "Walkie Talkie");
                 if (walkie != null)
@@ -267,7 +268,7 @@ You cant turn the handle fast enough and you meet your fate...");
                     System.Console.WriteLine(@"You turn the handle get outside and notice a road to the north.");
                 }
             }
-            if (CurrentRoom.Name == "The Road")
+            else if (CurrentRoom.Name == "The Road")
             {
                 var wine = CurrentPlayer.Inventory.Find(i => i.Name == "Wine");
                 var mask = CurrentPlayer.Inventory.Find(i => i.Name == "Gas Mask");
@@ -286,11 +287,6 @@ down the window and asks where your headed you respond with the police
 station please. He proceeds to ask if you have money to pay for it. You 
 have no money.");
                 }
-            }
-            else if (CurrentRoom.Directions.ContainsKey(direction) && CurrentRoom.Name != "The Crypt")
-            {
-                CurrentRoom = CurrentRoom.Directions[direction];
-                SearchRoom();
             }
             else
             {
