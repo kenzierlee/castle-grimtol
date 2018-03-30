@@ -19,7 +19,7 @@ namespace CastleGrimtol
 Another long hallway, only this ones filled with shattered glass scattered all 
 across the floor. 'I have to be careful... This glass is sharp and unavoidable.
 There's no way my bare feet could handle this.' You see something shinning at 
-the end of it... Hmmm..."
+the end of it to the East... Hmmm..."
                 };
                 Room westHallway = new Room()
                 {
