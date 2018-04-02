@@ -297,6 +297,11 @@ item you can take it will be added to your inventory");
                 System.Console.WriteLine("To see your Inventory Enter: inventory");
                 System.Console.WriteLine("To end the game Enter: quit");
             }
+            else if(userInput[0] == 'l')
+            {
+                validChoice = userInput;
+                game.SearchRoom();
+            }
             else if (userInput[0] == 'q')
             {
                 validChoice = userInput;
